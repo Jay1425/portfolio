@@ -9,6 +9,9 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             background-color: #333;
@@ -20,6 +23,7 @@
             display: flex;
             justify-content: center;
             background-color: #444;
+            flex-wrap: wrap;
         }
         nav a {
             color: white;
@@ -32,6 +36,7 @@
         }
         .container {
             padding: 20px;
+            flex: 1;
         }
         .logo {
             width: 50px;
@@ -43,6 +48,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
         }
         .content img {
             max-width: 100%;
@@ -53,9 +59,31 @@
             color: white;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        }
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            nav a {
+                padding: 10px;
+                flex: 1 1 auto;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                padding: 10px;
+                flex: 1 1 auto;
+            }
         }
     </style>
 </head>
@@ -72,7 +100,7 @@
     <div class="container">
         <section id="about" class="content">
             <h2>About Me</h2>
-            <p>Hello! I'm Jay, a passionate developer with expertise in <span id="dynamic-text"> </span>.</p>
+            <p>Hello! I'm Jay, a passionate developer with expertise in <span id="dynamic-text"></span>.</p>
         </section>
         <section id="projects" class="content">
             <h2>Projects</h2>
