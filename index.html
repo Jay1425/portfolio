@@ -12,33 +12,18 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #f0f0f0; /* Fallback background color */
-            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxsgPPJV2gzAEgiwIxq9ex6UwGNmEQIL_9eXIjjRcVHG8jhXbXRZ7G1Kef&s=10');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Keeps the background fixed while scrolling */
         }
         header {
-            background-color: rgba(51, 51, 51, 0.8); /* Transparent black background */
+            background-color: #333;
             color: white;
             padding: 10px 0;
             text-align: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000; /* Ensures header stays above background */
         }
         nav {
             display: flex;
             justify-content: center;
-            background-color: rgba(68, 68, 68, 0.8); /* Transparent black background */
-            backdrop-filter: blur(10px); /* Adds a blur effect */
-            position: fixed;
-            top: 50px; /* Adjust top based on header height */
-            left: 0;
-            width: 100%;
-            z-index: 1000; /* Ensures nav stays above background */
+            background-color: #444;
+            flex-wrap: wrap;
         }
         nav a {
             color: white;
@@ -47,14 +32,11 @@
             text-align: center;
         }
         nav a:hover {
-            background-color: rgba(85, 85, 85, 0.8); /* Darker shade on hover */
+            background-color: #555;
         }
         .container {
             padding: 20px;
-            margin-top: 100px; /* Adjust margin top based on header and nav height */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex: 1;
         }
         .logo {
             width: 50px;
@@ -63,24 +45,65 @@
             object-fit: cover;
         }
         .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+        }
+        .project {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: left;
             width: 100%;
             max-width: 800px;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
         }
-        footer {
-            background-color: rgba(51, 51, 51, 0.8); /* Transparent black background */
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 1000; /* Ensures footer stays above background */
+        .project img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .project-title {
+            font-size: 1.5em;
+            margin: 0 0 10px 0;
+        }
+        .project-description {
+            margin: 10px 0;
+        }
+        .project-technologies {
+            font-style: italic;
+            color: #555;
+        }
+        .project-link {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        .skills {
+            margin-top: 20px;
+        }
+        .skills h2 {
+            margin-bottom: 10px;
+        }
+        .skills-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills-list li {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px 16px;
+            margin: 4px;
         }
         .contact-icons {
             margin-top: 20px;
@@ -89,13 +112,20 @@
             align-items: center;
         }
         .contact-icons a {
+            display: inline-block;
             margin: 0 10px;
             text-decoration: none;
-            color: white;
+            color: #333;
             transition: color 0.3s ease;
         }
         .contact-icons a:hover {
             color: #007BFF;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
         }
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
@@ -116,10 +146,10 @@
             }
             nav {
                 flex-direction: column;
-}
+            }
             nav a {
                 padding: 10px;
-                flex: 1 1 auto;
+flex: 1 1 auto;
             }
         }
     </style>
@@ -139,7 +169,7 @@
             <h2>About Me</h2>
             <p>Hello! I'm Jay, a starting student passionate about learning web development, design, and more.</p>
         </section>
-        <section id="skills" class="content">
+        <section id="skills" class="content skills">
             <h2>Skills</h2>
             <ul class="skills-list">
                 <li id="skill1"></li>
