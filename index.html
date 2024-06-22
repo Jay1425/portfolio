@@ -1,65 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOpsJay</title>
-    <link rel="stylesheet" href="https://github.com/Jay1425/Jay1425/blob/main/style.css">
-    <link class="tablogo" rel="shortcut icon" href="mylogo.png" type="image/x-icon">
+    <title>Jay's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
-
-<body class="body">
-    <div>
-        <header>
-            <nav>
-                <a class="icon" href="index.html">DevOpsJay</a>
-                <span class="pagination">
-                <li><a class="ahref" href="index.html">Home</a></li>
-                <li><a class="ahref" href="">Contact</a></li>
-                <li><a class="ahref" href="">About Us</a></li>
-                </span>
-                <button class="mybutton">LogIn</button>
-                <button onclick="window.location.href = 'https://www.google.com/;'"
-                class="mybutton">SignUp</button>
-            </nav>
-        </header>
+<body>
+    <header>
+        <img src="logo.png" alt="Jay's Logo" class="logo">
+        <h1>Welcome to Jay's Portfolio</h1>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="about" class="content">
+            <h2>About Me</h2>
+            <p>Hello! I'm Jay, a passionate developer with expertise in web development, design, and much more.</p>
+        </section>
+        <section id="projects" class="content">
+            <h2>Projects</h2>
+            <!-- Add your project details here -->
+        </section>
+        <section id="contact" class="content">
+            <h2>Contact</h2>
+            <p>You can reach me at: <a href="mailto:jay@example.com">jay@example.com</a></p>
+        </section>
     </div>
-    <div>
-        <main>
-            <article>
-                <h2>
-                    Welcome To
-                    <span class="artmain">
-                        DevOpsJay
-                    </span>
-                </h2>
-                <h1 class="tooltip">
-                    i'm jay
-                    <span class="tooltiptext">
-                        raychura
-                    </span>
-                </h1>
-
-            </article>
-            <figure>
-
-            </figure>
-        </main>
-    </div>
-    <div class="des-foot">
-        <footer >
-            <table>
-                <tr>
-                    <td>
-                        <a class="ahref" href="">About Me</a>
-                    </td>
-                </tr>
-            </table>
-        </footer>
-    </div>
-    
-
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 Jay's Portfolio</p>
+    </footer>
 </body>
 </html>
