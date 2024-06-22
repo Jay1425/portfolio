@@ -54,13 +54,56 @@
             max-width: 100%;
             height: auto;
         }
-        .contact {
-            background-color: #f0f0f0; /* Light grey background color */
+        .project {
+            margin: 20px 0;
             padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: left;
+            width: 100%;
+            max-width: 800px;
+        }
+        .project img {
+            max-width: 100%;
             border-radius: 8px;
         }
-        .contact h2 {
-            margin-top: 0;
+        .project-title {
+            font-size: 1.5em;
+            margin: 0 0 10px 0;
+        }
+        .project-description {
+            margin: 10px 0;
+        }
+        .project-technologies {
+            font-style: italic;
+            color: #555;
+        }
+        .project-link {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        .skills {
+            margin-top: 20px;
+        }
+        .skills h2 {
+            margin-bottom: 10px;
+        }
+        .skills-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills-list li {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px 16px;
+            margin: 4px;
         }
         footer {
             background-color: #333;
@@ -102,19 +145,29 @@
     </header>
     <nav>
         <a href="#about">About</a>
-        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
     </nav>
     <div class="container">
         <section id="about" class="content">
             <h2>About Me</h2>
-            <p>Hello! I'm Jay, a passionate developer with expertise in <span id="dynamic-text"></span>.</p>
+            <p>Hello! I'm Jay, a starting student passionate about learning web development, design, and more.</p>
         </section>
-        <section id="projects" class="content">
-            <h2>Projects</h2>
-            <!-- Add your project details here -->
+        <section id="skills" class="content skills">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li id="skill1"></li>
+                <li id="skill2"></li>
+                <li id="skill3"></li>
+                <li id="skill4"></li>
+                <li id="skill5"></li>
+                <li id="skill6"></li>
+                <li id="skill7"></li>
+                <li id="skill8"></li>
+                <li id="skill9"></li>
+            </ul>
         </section>
-        <section id="contact" class="content contact">
+        <section id="contact" class="content">
             <h2>Contact</h2>
             <p>You can reach me at: <a href="mailto:jayraychura3@gmail.com">jayraychura3@gmail.com</a></p>
         </section>
@@ -125,54 +178,57 @@
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             const words = [
-                "web development",
-                "design",
-                "Python programming",
-                "data science",
-                "machine learning",
-                "artificial intelligence"
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Python",
+                "React",
+                "UI/UX Design",
+                "Responsive Design",
+                "Version Control (Git)",
+                "Problem Solving"
             ];
 
             let wordIndex = 0;
-            const dynamicTextElement = document.getElementById('dynamic-text');
+            const skillElements = Array.from(document.querySelectorAll('.skills-list li'));
             const typingSpeed = 100; // Speed of typing
             const pauseDuration = 2000; // Pause between words
 
-            function typeWord() {
+            function typeSkill(index) {
                 let charIndex = 0;
-                const currentWord = words[wordIndex];
+                const currentWord = words[index];
 
                 function typeCharacter() {
                     if (charIndex < currentWord.length) {
-                        dynamicTextElement.textContent += currentWord.charAt(charIndex);
+                        skillElements[index].textContent += currentWord.charAt(charIndex);
                         charIndex++;
                         setTimeout(typeCharacter, typingSpeed);
                     } else {
-                        setTimeout(deleteWord, pauseDuration);
+                        setTimeout(deleteSkill, pauseDuration, index);
                     }
                 }
 
                 typeCharacter();
             }
 
-            function deleteWord() {
-                let charIndex = dynamicTextElement.textContent.length;
+            function deleteSkill(index) {
+                let charIndex = skillElements[index].textContent.length;
 
                 function deleteCharacter() {
                     if (charIndex > 0) {
-                        dynamicTextElement.textContent = dynamicTextElement.textContent.slice(0, -1);
+                        skillElements[index].textContent = skillElements[index].textContent.slice(0, -1);
                         charIndex--;
                         setTimeout(deleteCharacter, typingSpeed);
                     } else {
                         wordIndex = (wordIndex + 1) % words.length;
-                        setTimeout(typeWord, typingSpeed);
+                        setTimeout(typeSkill, typingSpeed, wordIndex);
                     }
                 }
 
                 deleteCharacter();
             }
 
-            typeWord();
+            typeSkill(wordIndex);
         });
     </script>
 </body>
