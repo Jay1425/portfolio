@@ -72,7 +72,7 @@
     <div class="container">
         <section id="about" class="content">
             <h2>About Me</h2>
-            <p id="description">Hello! I'm Jay, a passionate developer with expertise in web development, design, and much more.</p>
+            <p>Hello! I'm Jay, a passionate developer with expertise in <span id="dynamic-text">web development</span>.</p>
         </section>
         <section id="projects" class="content">
             <h2>Projects</h2>
@@ -88,55 +88,55 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            const phrases = [
-                "Hello! I'm Jay, a passionate developer with expertise in web development",
-                "Hello! I'm Jay, a passionate developer with expertise in design",
-                "Hello! I'm Jay, a passionate developer with expertise in Python programming",
-                "Hello! I'm Jay, a passionate developer with expertise in data science",
-                "Hello! I'm Jay, a passionate developer with expertise in machine learning",
-                "Hello! I'm Jay, a passionate developer with expertise in artificial intelligence"
+            const words = [
+                "web development",
+                "design",
+                "Python programming",
+                "data science",
+                "machine learning",
+                "artificial intelligence"
             ];
 
-            let phraseIndex = 0;
-            const descriptionElement = document.getElementById('description');
-            const typingSpeed = 50; // Speed of typing
-            const pauseDuration = 2000; // Pause between phrases
+            let wordIndex = 0;
+            const dynamicTextElement = document.getElementById('dynamic-text');
+            const typingSpeed = 100; // Speed of typing
+            const pauseDuration = 2000; // Pause between words
 
-            function typePhrase() {
+            function typeWord() {
                 let charIndex = 0;
-                const currentPhrase = phrases[phraseIndex];
+                const currentWord = words[wordIndex];
 
                 function typeCharacter() {
-                    if (charIndex < currentPhrase.length) {
-                        descriptionElement.textContent += currentPhrase.charAt(charIndex);
+                    if (charIndex < currentWord.length) {
+                        dynamicTextElement.textContent += currentWord.charAt(charIndex);
                         charIndex++;
                         setTimeout(typeCharacter, typingSpeed);
                     } else {
-                        setTimeout(deletePhrase, pauseDuration);
+                        setTimeout(deleteWord, pauseDuration);
                     }
                 }
 
                 typeCharacter();
             }
 
-            function deletePhrase() {
-                let charIndex = descriptionElement.textContent.length;
+            function deleteWord() {
+                let charIndex = dynamicTextElement.textContent.length;
 
                 function deleteCharacter() {
                     if (charIndex > 0) {
-                        descriptionElement.textContent = descriptionElement.textContent.slice(0, -1);
+                        dynamicTextElement.textContent = dynamicTextElement.textContent.slice(0, -1);
                         charIndex--;
                         setTimeout(deleteCharacter, typingSpeed);
                     } else {
-                        phraseIndex = (phraseIndex + 1) % phrases.length;
-                        setTimeout(typePhrase, typingSpeed);
+                        wordIndex = (wordIndex + 1) % words.length;
+                        setTimeout(typeWord, typingSpeed);
                     }
                 }
 
                 deleteCharacter();
             }
 
-            typePhrase();
+            typeWord();
         });
     </script>
 </body>
