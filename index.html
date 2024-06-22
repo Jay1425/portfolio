@@ -72,7 +72,7 @@
     <div class="container">
         <section id="about" class="content">
             <h2>About Me</h2>
-            <p>Hello! I'm Jay, a passionate developer with expertise in web development, design, and much more.</p>
+            <p id="description">Hello! I'm Jay, a passionate developer with expertise in web development, design, and much more.</p>
         </section>
         <section id="projects" class="content">
             <h2>Projects</h2>
@@ -80,11 +80,64 @@
         </section>
         <section id="contact" class="content">
             <h2>Contact</h2>
-            <p>You can reach me at: <a href="mailto:Mail-Me">jayraychura3@gmail.com</a></p>
+            <p>You can reach me at: <a href="mailto:jayraychura3@gmail.com">jayraychura3@gmail.com</a></p>
         </section>
     </div>
     <footer>
         <p>&copy; 2024 Jay's Portfolio</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const phrases = [
+                "Hello! I'm Jay, a passionate developer with expertise in web development",
+                "Hello! I'm Jay, a passionate developer with expertise in design",
+                "Hello! I'm Jay, a passionate developer with expertise in Python programming",
+                "Hello! I'm Jay, a passionate developer with expertise in data science",
+                "Hello! I'm Jay, a passionate developer with expertise in machine learning",
+                "Hello! I'm Jay, a passionate developer with expertise in artificial intelligence"
+            ];
+
+            let phraseIndex = 0;
+            const descriptionElement = document.getElementById('description');
+            const typingSpeed = 50; // Speed of typing
+            const pauseDuration = 2000; // Pause between phrases
+
+            function typePhrase() {
+                let charIndex = 0;
+                const currentPhrase = phrases[phraseIndex];
+
+                function typeCharacter() {
+                    if (charIndex < currentPhrase.length) {
+                        descriptionElement.textContent += currentPhrase.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeCharacter, typingSpeed);
+                    } else {
+                        setTimeout(deletePhrase, pauseDuration);
+                    }
+                }
+
+                typeCharacter();
+            }
+
+            function deletePhrase() {
+                let charIndex = descriptionElement.textContent.length;
+
+                function deleteCharacter() {
+                    if (charIndex > 0) {
+                        descriptionElement.textContent = descriptionElement.textContent.slice(0, -1);
+                        charIndex--;
+                        setTimeout(deleteCharacter, typingSpeed);
+                    } else {
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        setTimeout(typePhrase, typingSpeed);
+                    }
+                }
+
+                deleteCharacter();
+            }
+
+            typePhrase();
+        });
+    </script>
 </body>
 </html>
