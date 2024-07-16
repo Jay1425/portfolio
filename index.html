@@ -163,10 +163,7 @@ flex: 1 1 auto;
     <header>
         <img src="https://live.staticflickr.com/65535/53807497701_9f24a44782_m.jpg" alt="Jay's Logo" class="logo">
         <h1>Welcome to Jay's Portfolio</h1>
-    <div>
-        <video id="video" autoplay></video>
-        <button onClick="openCamera()">ON</button>
-    </div>
+    
     </header>
     <nav>
         <a href="#about">About</a>
@@ -224,11 +221,7 @@ flex: 1 1 auto;
         <p>&copy; 2024 Jay's Portfolio</p>
     </footer>
     <script>
-        async function openCamera()
-        {
-            const stream = await navigator.mediaDevices.getUserMedia({video:true});
-            video.srcObject = stream;
-        }
+        
         document.addEventListener('DOMContentLoaded', (event) => {
             const words = [
                 "HTML",
