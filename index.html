@@ -191,12 +191,73 @@
             margin-right: 20px;
             
         }
+        .flag-container {
+    perspective: 1000px;
+}
+
+.flag {
+    width: 300px;
+    height: 180px;
+    animation: wave 2s infinite ease-in-out;
+    transform-origin: left;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.saffron, .white, .green {
+    height: 33.33%;
+}
+
+.saffron {
+    background-color: #FF9933;
+}
+
+.white {
+    background-color: #FFFFFF;
+    position: relative;
+}
+
+.green {
+    background-color: #138808;
+}
+
+.ashoka-chakra {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 2px solid #000080;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    background-image: radial-gradient(circle, #000080 1px, transparent 1px);
+    background-size: 5px 5px;
+    background-position: center;
+}
+
+@keyframes wave {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(-10deg); }
+    100% { transform: rotateY(0deg); }
+}
     </style>
 </head>
 <body>
     <header>
         <img src="https://live.staticflickr.com/65535/53807497701_9f24a44782_m.jpg" alt="Jay's Logo" class="logo">
         <h1>Welcome to Jay's Portfolio</h1>
+        <div class="flag-container">
+        <div class="flag">
+            <div class="saffron"></div>
+            <div class="white">
+                <div class="ashoka-chakra"></div>
+            </div>
+            <div class="green"></div>
+        </div>
+    </div>
          <div class="input">
             <button class="talk content1"><i class="fas fa-microphone-alt">Click here</i></button>
             
