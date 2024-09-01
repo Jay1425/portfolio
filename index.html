@@ -191,6 +191,20 @@
             margin-right: 20px;
             
         }
+        #reptile-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .reptile-segment {
+            width: 10px;
+            height: 10px;
+            background-color: #0ff;
+            border-radius: 50%;
+            position: absolute;
+            transform-origin: center;
+        }
         
     </style>
 </head>
@@ -210,6 +224,7 @@
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
     </nav>
+    <div id="reptile-container"></div>
     <div class="container">
         <section id="about" class="content">
         <h2>About Me</h2>
@@ -261,6 +276,38 @@
         <p>&copy; 2024 Jay's Portfolio</p>
     </footer>
     <script>
+
+        const reptileContainer = document.getElementById('reptile-container');
+const reptileSegments = [];
+const reptileSegmentCount = 20;
+
+for (let i = 0; i < reptileSegmentCount; i++) {
+    const reptileSegment = document.createElement('div');
+    reptileSegment.classList.add('reptile-segment');
+    reptileContainer.appendChild(reptileSegment);
+    reptileSegments.push(reptileSegment);
+}
+
+document.addEventListener('mousemove', (event) => {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+    reptileSegments.forEach((segment, index) => {
+        const nextSegment = reptileSegments[index - 1] || { x: mouseX, y: mouseY };
+        const dx = nextSegment.x - segment.offsetLeft;
+        const dy = nextSegment.y - segment.offsetTop;
+        const angle = Math.atan2(dy, dx);
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const moveDistance = Math.min(distance, 10);
+
+        segment.style.transform = `rotate(${angle}rad)`;
+        segment.style.left = `${segment.offsetLeft + Math.cos(angle) * moveDistance}px`;
+        segment.style.top = `${segment.offsetTop + Math.sin(angle) * moveDistance}px`;
+
+        segment.x = segment.offsetLeft;
+        segment.y = segment.offsetTop;
+    });
+});
+
         const btn = document.querySelector('.talk');
         const content = document.querySelector('.content');
 
