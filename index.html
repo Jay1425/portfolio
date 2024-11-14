@@ -12,12 +12,24 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            display: block;
+            
         }
         header {
             background-color: #333;
             color: white;
             padding: 10px 0;
             text-align: center;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            position: relative; 
+            flex-direction: column; 
+        }
+        header h1 {
+        font-size: 1.8em; 
+        margin: 0; 
+
         }
         nav {
             display: flex;
@@ -161,27 +173,32 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 40vw;
-            height: 50px;
+            width: 25vw; 
+            height: 40px; 
             border-radius: 20px;
-            background: rgb(202 253 255 / 50%);
-        }
+            background: black;
+            margin-top: 10px; 
+}
+
+
+            
+        
 
         .input .talk {
             background: transparent;
             outline: none;
             border: none;
-            width: 50px;
-            height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 15px;
+            padding: 8px 16px; 
+            font-size: 14px; 
             cursor: pointer;
         }
 
+        
         .input .talk i {
-            font-size: 20px;
+            font-size: 18px; 
             color: #aed0d0;
         }
 
@@ -191,6 +208,9 @@
             margin-right: 20px;
             
         }
+
+        
+      
         
     </style>
 </head>
