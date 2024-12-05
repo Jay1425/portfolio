@@ -1,426 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay's Portfolio</title>
+    <title>AI CYBERSPACE</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            display: block;
-            
+            box-sizing: border-box;
         }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            display: flex;
-            justify-content: center; 
-            align-items: center; 
-            position: relative; 
-            flex-direction: column; 
-        }
-        header h1 {
-        font-size: 1.8em; 
-        margin: 0; 
 
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #444;
-            flex-wrap: wrap;
-        }
-        nav a {
+        body,
+        html {
+            font-family: 'Arial', sans-serif;
+            background: #121212;
             color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
+            overflow-x: hidden;
+            height: 100%;
         }
-        nav a:hover {
-            background-color: #555;
-        }
+
         .container {
             padding: 20px;
-            flex: 1;
         }
-        .round-radius
-        {
-            border-radius: 50%
-        }
-        .logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+
+        /* Header Styling */
+        header {
             text-align: center;
+            background: linear-gradient(45deg, #00ff99, #ff00ff);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 50px rgba(255, 0, 255, 0.5);
         }
-        .content img {
-            max-width: 100%;
-            height: auto;
+
+        header h1 {
+            font-size: 3rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
         }
-        .project {
-            margin: 20px 0;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-align: left;
-            width: 100%;
-            max-width: 800px;
-        }
-        .project img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-        .project-title {
-            font-size: 1.5em;
-            margin: 0 0 10px 0;
-        }
-        .project-description {
-            margin: 10px 0;
-        }
-        .project-technologies {
-            font-style: italic;
-            color: #555;
-        }
-        .project-link {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        .project-link:hover {
-            text-decoration: underline;
-        }
-        .skills {
-            margin-top: 20px;
-        }
-        .skills h2 {
-            margin-bottom: 10px;
-        }
-        .skills-list {
+
+        header nav {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            list-style-type: none;
-            padding: 0;
+            gap: 40px;
         }
-        .skills-list li {
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 8px 16px;
-            margin: 4px;
-        }
-        .contact-icons {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-        }
-        .contact-icons a {
-            display: inline-block;
-            margin: 0 10px;
-            text-decoration: none;
-            color: #333;
-            transition: color 0.3s ease;
-        }
-        .contact-icons a:hover {
-            color: #007BFF;
-        }
-        footer {
-            background-color: #333;
+
+        header nav a {
             color: white;
-            text-align: center;
-            padding: 10px 0;
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+            padding: 10px;
         }
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            nav a {
-                padding: 10px;
-                flex: 1 1 auto;
-            }
-            header h1 {
-                font-size: 1.5em;
-            }
-            .container {
-                padding: 10px;
-            }
+
+        header nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: #ff00ff;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s;
         }
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.2em;
-            }
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                padding: 10px;
-                flex: 1 1 auto;
-            }
+
+        header nav a:hover::after {
+            width: 100%;
         }
-        .input {
+
+        /* About Section Styling */
+        section {
+            margin: 60px 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00ff99;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #about {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        /* Projects Section Styling */
+        .project {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project h3 {
+            font-size: 1.5rem;
+            color: #ff00ff;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Skills Section Styling */
+        #skills {
             display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
             justify-content: center;
-            align-items: center;
-            width: 25vw; 
-            height: 40px; 
-            border-radius: 20px;
-            background: black;
-            margin-top: 10px; 
-}
+            margin-top: 40px;
+        }
 
+        .skill {
+            background: linear-gradient(45deg, #ff00ff, #00ff99);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            color: #121212;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
 
-            
-        
+        .skill::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-        .input .talk {
-            background: transparent;
-            outline: none;
-            border: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 8px 16px; 
-            font-size: 14px; 
+        .skill:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
             cursor: pointer;
         }
 
-        
-        .input .talk i {
-            font-size: 18px; 
-            color: #aed0d0;
+        .skill:hover::before {
+            opacity: 1;
         }
 
-        .input .content1 {
-            color: #aed0d0;
-            font-size: 15px;
-            margin-right: 20px;
-            
+        /* Contact Section Styling */
+        #contact a {
+            color: #00ff99;
+            text-decoration: none;
         }
 
-        
-      
-        
+        #contact a:hover {
+            color: #ff00ff;
+        }
+
+
+
+        /* Responsive Styles */
+        @media only screen and (max-width: 768px) {
+            header {
+                padding: 30px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            header nav a {
+                font-size: 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .project h3 {
+                font-size: 1.3rem;
+            }
+
+            #skills {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skill {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            #linkweb {
+                width: 50px;
+                /* Adjust to your desired size */
+                height: 50px;
+                /* Adjust to your desired size */
+                border-radius: 43%;
+                /* Makes the logo circular */
+                object-fit: cover;
+                /* Ensures the image covers the circle without distortion */
+            }
+
+            #contact {
+                text-align: center;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            header {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header nav a {
+                font-size: 0.9rem;
+            }
+
+            .skill {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to Jay's Portfolio</h1>
-        
-         <div class="input">
-            <button class="talk content1"><i class="fas fa-microphone-alt">Click here</i></button>
-            
-        </div>
-    
-    </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
     <div class="container">
-        <section id="about" class="content">
-        <h2>About Me</h2>
-        <p>Hello! I'm Jay, a dedicated student deeply immersed in the exciting realms of Data Science, Machine Learning, and Artificial Intelligence. My journey into this field began with a fascination for leveraging data-driven insights to solve complex problems and drive meaningful innovation. From foundational programming to advanced algorithmic techniques, I am committed to mastering the art of transforming data into actionable intelligence.</p>
+        <!-- Header with neon effect -->
+        <header>
+            <h1>welcome to AI CyberSpace</h1>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
 
-        <h3>Learning Journey</h3>
-        <p>My passion for data science ignited during my exploration of programming languages and statistical analysis. Eager to unravel the power of data, I embarked on a journey to understand its transformative potential across various domains. I am continually expanding my expertise in Python, R, and SQL, while diving deep into advanced topics such as machine learning algorithms, deep learning frameworks, and neural networks.</p>
-
-        <h3>Skills and Expertise</h3>
-        <p>With a strong foundation in Python programming and statistical modeling, I specialize in extracting insights from complex datasets using machine learning algorithms. My expertise extends to building and optimizing neural networks for tasks ranging from image recognition to natural language processing. I am proficient in tools like TensorFlow and PyTorch, empowering me to develop robust AI solutions that push the boundaries of technological innovation.</p>
-
-        <h3>Vision and Aspirations</h3>
-        <p>Looking ahead, I am driven to apply my skills in transformative ways, contributing to groundbreaking projects that harness the full potential of AI and machine learning. I am passionate about tackling real-world challenges with data-driven solutions that drive business growth and societal impact. As I continue to deepen my expertise in data science and AI, I am eager to collaborate with teams that share my vision for leveraging technology to shape a better future.</p>
-</section>
-        <section id="skills" class="content skills">
-            <h2>Skills</h2>
-            <ul class="skills-list">
-                <li id="skill1"></li>
-                <li id="skill2"></li>
-                <li id="skill3"></li>
-                <li id="skill4"></li>
-                <li id="skill5"></li>
-                <li id="skill6"></li>
-                <li id="skill7"></li>
-                <li id="skill8"></li>
-                <li id="skill9"></li>
-            </ul>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Heyo my name is Jay. I'm an AI enthusiast, exploring the boundaries of technology, cyberpunk worlds, and
+                the future. I am passionate about creating innovative AI solutions and immersing myself in futuristic
+                designs.</p>
         </section>
-        <section id="contact" class="content">
-            <h2>Contact</h2>
-            <div class="contact-icons">
-                <a href="https://github.com/Jay1425" target="_blank" rel="noopener noreferrer">
-                    <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" width="30">
-                </a>
-                <a href="https://www.reddit.com/u/jayraychura/s/Fu4Ht7yswE" target="_blank" rel="noopener noreferrer">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6ywA03cCN2DUWo1x4udvLw2gCPnTYFMYtag_hotDP4g&s" alt="Reddit" width="30" class="round-radius">
-                </a>
-                <a href="https://www.linkedin.com/in/jayraychura?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrIbiofxGclX20CWBDtpmjOcbbuqEJS6PrSQ&s" alt="LinkedIn" width="30">
-                </a>
-                <a href="https://instagram.com/jay_raychura_" target="_blank" rel="noopener noreferrer">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUVCK17wP9tl0nhefkEnQ6_Kg6fViI3IzXMmFmP__PA&s" alt="Instagram" width="30">
-                </a>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>AI-powered Smart Assistant</h3>
+                <p>An AI assistant that understands and responds in real time, designed with futuristic tech stacks.</p>
             </div>
-            <p>You can also reach me at: <a href="mailto:jayraychura3@gmail.com">Mail-Me</a></p>
+            <div class="project">
+                <h3>Cyberpunk City Simulation</h3>
+                <p>A virtual simulation of a cyberpunk city with AI-driven interactions.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skill">AI/ML</div>
+            <div class="skill">Web Development</div>
+            <div class="skill">Deep Learning</div>
+            <div class="skill">Data Science</div>
+            <div class="skill">Neural Science</div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <a href="https://github.com/Jay1425" target="_blank" rel="noopener noreferrer">
+                <img id="linkweb" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub"
+                    width="30">
+            </a>
+            <a href="https://www.reddit.com/u/jayraychura/s/Fu4Ht7yswE" target="_blank" rel="noopener noreferrer">
+                <img id="linkweb"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6ywA03cCN2DUWo1x4udvLw2gCPnTYFMYtag_hotDP4g&s"
+                    alt="Reddit" width="30" class="round-radius">
+            </a>
+            <a href="https://www.linkedin.com/in/jayraychura?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank" rel="noopener noreferrer">
+                <img id="linkweb"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrIbiofxGclX20CWBDtpmjOcbbuqEJS6PrSQ&s"
+                    alt="LinkedIn" width="30">
+            </a>
+            <a href="https://instagram.com/jay_raychura_" target="_blank" rel="noopener noreferrer">
+                <img id="linkweb"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUVCK17wP9tl0nhefkEnQ6_Kg6fViI3IzXMmFmP__PA&s"
+                    alt="Instagram" width="30">
+            </a>
+            <p>Email me at: <a href="mailto:jayhraychura@gmail.com">Mail-To</a></p>
         </section>
     </div>
-    <footer>
-        <p>&copy; 2024 Jay's Portfolio</p>
-    </footer>
+
     <script>
-
-        
-   
-        const btn = document.querySelector('.talk');
-        const content = document.querySelector('.content');
-
-        function speak(text) {
-            const text_speak = new SpeechSynthesisUtterance(text);
-
-            text_speak.rate = 1;
-            text_speak.volume = 1;
-            text_speak.pitch = 1;
-
-            window.speechSynthesis.speak(text_speak);
-        }
-
-        function wishMe() {
-            var day = new Date();
-            var hour = day.getHours();
-
-            if (hour >= 0 && hour < 12) {
-                speak("Good Morning Boss...");
-            } else if (hour >= 12 && hour < 17) {
-                speak("Good Afternoon Master...");
-            } else {
-                speak("Good Evening Sir...");
-            }
-        }
-
-        window.addEventListener('load', () => {
-            speak("Initializing JARVIS...");
-            wishMe();
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('header nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
         });
 
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        const recognition = new SpeechRecognition();
+        // Scroll to Top Button
+        const scrollToTopBtn = document.createElement('button');
+        scrollToTopBtn.textContent = '↑';
+        scrollToTopBtn.style.position = 'fixed';
+        scrollToTopBtn.style.bottom = '30px';
+        scrollToTopBtn.style.right = '30px';
+        scrollToTopBtn.style.backgroundColor = '#ff00ff';
+        scrollToTopBtn.style.color = '#fff';
+        scrollToTopBtn.style.border = 'none';
+        scrollToTopBtn.style.borderRadius = '50%';
+        scrollToTopBtn.style.fontSize = '20px';
+        scrollToTopBtn.style.padding = '15px';
+        scrollToTopBtn.style.cursor = 'pointer';
+        scrollToTopBtn.style.display = 'none'; // Initially hidden
+        document.body.appendChild(scrollToTopBtn);
 
-        recognition.onresult = (event) => {
-            const currentIndex = event.resultIndex;
-            const transcript = event.results[currentIndex][0].transcript;
-            content.textContent = transcript;
-            takeCommand(transcript.toLowerCase());
-        };
-
-        btn.addEventListener('click', () => {
-            content.textContent = "Listening...";
-            recognition.start();
+        // Show or hide the scroll-to-top button on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
         });
 
-        function takeCommand(message) {
-            if (message.includes('hey') || message.includes('hello')) {
-                speak("Hello Sir, How May I Help You?");
-            } else if (message.includes("open google")) {
-                window.open("https://google.com", "_blank");
-                speak("Opening Google...");
-            } else if (message.includes("open youtube")) {
-                window.open("https://youtube.com", "_blank");
-                speak("Opening Youtube...");
-            } else if (message.includes("open facebook")) {
-                window.open("https://facebook.com", "_blank");
-                speak("Opening Facebook...");
-            } else if (message.includes('what is') || message.includes('who is') || message.includes('what are')) {
-                window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
-                const finalText = "This is what I found on the internet regarding " + message;
-                speak(finalText);
-            } else if (message.includes('wikipedia')) {
-                window.open(`https://en.wikipedia.org/wiki/${message.replace("wikipedia", "").trim()}`, "_blank");
-                const finalText = "This is what I found on Wikipedia regarding " + message;
-                speak(finalText);
-            } else if (message.includes('time')) {
-                const time = new Date().toLocaleString(undefined, { hour: "numeric", minute: "numeric" });
-                const finalText = "The current time is " + time;
-                speak(finalText);
-            } else if (message.includes('date')) {
-                const date = new Date().toLocaleString(undefined, { month: "short", day: "numeric" });
-                const finalText = "Today's date is " + date;
-                speak(finalText);
-            } else if (message.includes('calculator')) {
-                window.open('Calculator:');
-                const finalText = "Opening Calculator";
-                speak(finalText);
-            } else {
-                window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
-                const finalText = "I found some information for " + message + " on Google";
-                speak(finalText);
+        // Scroll to top on button click
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Simple Particle Animation using JavaScript
+        document.addEventListener('DOMContentLoaded', function () {
+            const canvas = document.createElement('canvas');
+            document.body.appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            // Resize the canvas
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
             }
-        }
-        
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const words = [
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "Python",
-                "React",
-                "UI/UX Design",
-                "Responsive Design",
-                "Version Control (Git)",
-                "Problem Solving"
-            ];
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
 
-            let wordIndex = 0;
-            const skillElements = Array.from(document.querySelectorAll('.skills-list li'));
-            const typingSpeed = 100; // Speed of typing
-            const pauseDuration = 2000; // Pause between words
+            // Particle constructor
+            function Particle(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 5 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+                this.lifeSpan = Math.random() * 3 + 1;
+            }
 
-            function typeSkill(index) {
-                let charIndex = 0;
-                const currentWord = words[index];
+            // Update particle position
+            Particle.prototype.update = function () {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.lifeSpan -= 0.05;
+            };
 
-                function typeCharacter() {
-                    if (charIndex < currentWord.length) {
-                        skillElements[index].textContent += currentWord.charAt(charIndex);
-                        charIndex++;
-                        setTimeout(typeCharacter, typingSpeed);
-                    } else {
-                        setTimeout(deleteSkill, pauseDuration, index);
-                    }
+            // Draw the particle
+            Particle.prototype.draw = function () {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.lifeSpan})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            };
+
+            // Create particles at mouse position
+            document.addEventListener('mousemove', function (event) {
+                let particleCount = 5;
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle(event.x, event.y));
                 }
+            });
 
-                typeCharacter();
-            }
-
-            function deleteSkill(index) {
-                let charIndex = skillElements[index].textContent.length;
-                function deleteCharacter() {
-                         if (charIndex > 0) {
-                            skillElements[index].textContent = skillElements[index].textContent.slice(0, -1);
-                            charIndex--;
-                            setTimeout(deleteCharacter, typingSpeed);
-                        } else {
-                            wordIndex = (wordIndex + 1) % words.length;
-                            setTimeout(typeSkill, typingSpeed, wordIndex);
-                        }
+            // Animate particles
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((particle, index) => {
+                    particle.update();
+                    particle.draw();
+                    if (particle.lifeSpan <= 0) {
+                        particles.splice(index, 1);
                     }
-
-                 deleteCharacter();
+                });
+                requestAnimationFrame(animate);
             }
 
-            typeSkill(wordIndex);
+            animate();
         });
     </script>
 </body>
+
 </html>
